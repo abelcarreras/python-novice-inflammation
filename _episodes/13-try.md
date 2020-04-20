@@ -36,7 +36,26 @@ This traceback shows that ZeroDivisionError has been raised. This particular err
 that some division contains a zero in its denominator as can be deduced by its name. There are 
 many types of errors defined in the python language. Usually the error names are very explicit 
 and its meaning can be inferred by the name. 
-Using `try` and `except` clauses it is possible to capture this error and write and alternative
+
+There are two main strategies to deal with errors:
+1. Look before you leap (LBYL)
+2. Easier to ask for forgiveness than permission (EAFP)
+
+[LBYL]({{ page.root }}/reference/#LBYL) strategy is generally used in low-level programming languages and consist in checking 
+the variables for potential errors in later functions before the error actually happens.
+Then, according to the estimated error proceed.
+
+[EAFP]({{ page.root }}/reference/#EAFP), on the other hand, lets the code to fail, and then, instead of stopping the execution,
+check the error and proceed accordingly to it.   
+
+In python, the most common strategy is EAFP. This strategy has several advantages respect to LBYL.
+- Simplicity: By not consider all possible failures the code (at high level) becomes simpler and 
+easier to read
+- Modularity: If the error occurs in one of the modules, the error is risen and the top script
+can capture it and decide how to handle it, centralizing (or encapsulating) error handling at 
+one section instead of being spread along the code.
+
+Error handling is done using `try` and `except` clauses. These allows to capture an error and write and alternative
 algorithm to handle it.
 
 This clauses are used in fragments of code that may potentially rise an error.
@@ -79,8 +98,67 @@ except ValueError:
 ~~~
 {: .language-python}
 
-## Custom errors
+Also, multiple types of exceptions can be handled by an unique `except` clause, by grouping
+them in a tuple:
+
+~~~
+string_input = input("Enter a number: ")
+
+try:
+    number = float(string_input)
+    division = 1/number
+    print('result: ', division)
+except (ZeroDivisionError, ValueError):
+    print('some error occurred')
+~~~
+{: .language-python}
+
+> ## Keep in mind
+>
+> The main objective of having multiple types of exceptions is to have more control over
+> the different causes of errors the program may have. It is good practice to be as restrictive
+> as possible handling the exceptions by using short `try` blocks and using specific `except`clauses.
+> This is in order to not overlook unexpected errors. 
+{: .callout}
 
 
+## Raising custom errors
+In long programs it is useful to be able to rise exceptions by ourselves if certain conditions
+are met. This advertises the rest of the program that a particular error has ben produced so other
+part of the code can handle it. This is done using the keyword `raise`. 
+
+~~~
+def inverse(num)
+    if num < 6:
+        raise ValueError('The value should be greater than 5')
+    return 1/num
+
+string_input = float(input("Enter a number greater than 5: "))
+division = inverse(num)
+print('result: ', division)
+
+~~~
+{: .language-python}
+
+In the last example `raise` is set inside the inverse function. This allows to combine with the clauses
+`try` and `except` to properly handle the exception as in the previous examples.
+
+~~~
+def inverse(num)
+    if num < 6:
+        raise ValueError('The value should be greater than 5')
+    return 1/num
+
+string_input = float(input("Enter a number greater than 5: "))
+try:
+    division = inverse(num)
+except ValueError:
+    print('Adding 6 to satisfy condition')
+    num = abs(num) + 6
+    division = inverse(num)
+    
+print('result: ', division)
+~~~
+{: .language-python}
 
 {% include links.md %}

@@ -84,6 +84,13 @@ dotted notation
 :   A two-part notation used in many programming languages
     in which `thing.component` refers to the `component` belonging to `thing`.
 
+EAFP
+:   Easier to ask for forgiveness than permission. This common Python coding style assumes 
+    the existence of valid keys or attributes and catches exceptions if the assumption proves 
+    false. This clean and fast style is characterized by the presence of many try and except 
+    statements. The technique contrasts with the LBYL style common to many other languages 
+    such as C.
+
 empty string
 :   A character string containing no characters,
     often thought of as the "zero" of text.
@@ -141,6 +148,10 @@ invariant
 :   An expression whose value doesn't change during the execution of a program,
     typically used in an [assertion](#assertion).
     See also: [precondition](#precondition), [postcondition](#postcondition).
+LBYL
+:   Look before you leap. This coding style explicitly tests for pre-conditions before 
+    making calls or lookups. This style contrasts with the EAFP approach and is characterized 
+    by the presence of many if statements.
 
 library
 :   A family of code units (functions, classes, variables) that implement a set of
