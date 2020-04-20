@@ -117,6 +117,7 @@ government. More information can be found [here][cp-about].
 [episode10]: https://swcarpentry.github.io/python-novice-inflammation/10-defensive/index.html
 [episode11]: https://swcarpentry.github.io/python-novice-inflammation/11-debugging/index.html
 [episode12]: https://swcarpentry.github.io/python-novice-inflammation/12-cmdline/index.html
+[episode13]: https://swcarpentry.github.io/python-novice-inflammation/13-try/index.html
 [community-initiatives]: https://communityin.org
 [cp-about]: https://carpentries.org/about
 [swc-about]: https://software-carpentry.org/about/
