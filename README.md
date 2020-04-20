@@ -40,6 +40,7 @@ This lesson is also available in [R][R] and [MATLAB][MATLAB].
 |10 | [Defensive Programming][episode10] | 30 | How can I make my programs more reliable? |
 |11 | [Debugging][episode11] | 30 | How can I debug my program? |
 |12 | [Command-Line Programs][episode12] | 30 | How can I write Python programs that will work like Unix command-line tools? |
+|13 | [Error handling][episode13] | 30 | How can I handle errors in python? |
 
 
 ## Contributing

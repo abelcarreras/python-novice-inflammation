@@ -3,7 +3,7 @@ title: Error handling
 teaching: 30
 exercises: 0
 questions:
-- "How to capture and handle errors in python programs?"
+- "How to handle errors in python programs?"
 - "How can I avoid my program to crash when errors occur?"
 objectives:
 - "To be able to write a code that do not crash if errors ocur and can 
